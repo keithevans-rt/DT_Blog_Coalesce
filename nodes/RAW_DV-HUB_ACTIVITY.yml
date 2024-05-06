@@ -1,0 +1,112 @@
+steps:
+  HUB_ACTIVITY-c6167f6f-15a8-4a5c-8152-7a53da2cf4f8:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: true
+      locationName: RAW_DV
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 28bd7b46-5d3e-4eb4-918e-d849126dc505
+              stepCounter: c6167f6f-15a8-4a5c-8152-7a53da2cf4f8
+            config:
+              is_Hub_hk: true
+            dataType: STRING
+            description: ""
+            name: BKEY_ACTIVITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: fb492777-fcd2-4778-bcf9-76cea72c746c
+                    stepCounter: e05eb812-8a21-4d1f-a02b-cec03c0e9324
+                transform: ""
+              - columnReferences:
+                  - columnCounter: b58c62d8-efd1-4e17-b534-f34872a337dd
+                    stepCounter: 835d43a1-646c-454f-a24d-14f426ebfd7d
+                transform: ""
+          - columnReference:
+              columnCounter: 2666a78e-3f9d-48d4-a7de-15b07e747f38
+              stepCounter: c6167f6f-15a8-4a5c-8152-7a53da2cf4f8
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: e026a9f0-a5f3-4f0f-9344-c27bdf2ecbf7
+                    stepCounter: e05eb812-8a21-4d1f-a02b-cec03c0e9324
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 1510e2b0-afea-4ce3-a76f-be55ab00367e
+                    stepCounter: 835d43a1-646c-454f-a24d-14f426ebfd7d
+                transform: ""
+          - columnReference:
+              columnCounter: f60f44ba-b47e-48f3-9908-970b5e12621e
+              stepCounter: c6167f6f-15a8-4a5c-8152-7a53da2cf4f8
+            dataType: VARCHAR(1000)
+            description: ""
+            name: FILE_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 98e9a80d-a24a-4c9b-adb3-22334cfcc8f0
+                    stepCounter: e05eb812-8a21-4d1f-a02b-cec03c0e9324
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 3f2a5089-6181-44dd-b03e-e912573ee749
+                    stepCounter: 835d43a1-646c-454f-a24d-14f426ebfd7d
+                transform: ""
+          - columnReference:
+              columnCounter: 37f887b8-f94f-4ece-b29b-8413f328acb8
+              stepCounter: c6167f6f-15a8-4a5c-8152-7a53da2cf4f8
+            config:
+              is_Hub_ldts: true
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: LOAD_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 723bd192-a6fe-4e9e-8b65-a8a0df224c18
+                    stepCounter: e05eb812-8a21-4d1f-a02b-cec03c0e9324
+                transform: ""
+              - columnReferences:
+                  - columnCounter: 8592da01-3047-4b95-825d-db5e5f51d15c
+                    stepCounter: 835d43a1-646c-454f-a24d-14f426ebfd7d
+                transform: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: LOAD
+                nodeName: STG_LOAD_GARMIN
+            join:
+              joinCondition: FROM {{ ref('LOAD', 'STG_LOAD_GARMIN') }} "STG_LOAD_GARMIN"
+            name: HUB_ACTIVITY_GARMIN
+            noLinkRefs: []
+          - aliases:
+              STG_LOAD_STRAVA: 835d43a1-646c-454f-a24d-14f426ebfd7d
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: LOAD
+                nodeName: STG_LOAD_STRAVA
+            join:
+              joinCondition: FROM {{ ref('LOAD', 'STG_LOAD_STRAVA') }} "STG_LOAD_STRAVA"
+            name: HUB_ACTIVITY_STRAVA
+            noLinkRefs: []
+      name: HUB_ACTIVITY
+      overrideSQL: false
+      schema: ""
+      sqlType: "1"
+      type: sql
+    stepCounter: c6167f6f-15a8-4a5c-8152-7a53da2cf4f8
