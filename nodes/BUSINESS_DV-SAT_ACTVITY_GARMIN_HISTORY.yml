@@ -1,0 +1,737 @@
+steps:
+  SAT_ACTVITY_GARMIN_HISTORY-2ba494f7-03c3-4cec-b825-bdf8f694738a:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: BUSINESS_DV
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 84892b93-6ac5-4185-bf72-d0ae145a61f5
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            config:
+              is_hk: true
+            dataType: STRING
+            description: ""
+            name: BKEY_ACTIVITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b40e1f27-234a-4f13-9039-2762b2bcb19e
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 961d2848-3d84-4615-a6eb-88949cf77b23
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: ACTIVITY_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: e73301f6-50d7-4fc3-9abc-c421d0741ed6
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 59688a4d-a8fa-4912-b7bf-fee996cde66c
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: FAVORITE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 92df6439-a010-46b6-972c-3237bf01b18a
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: c086340c-aeff-4b89-9d38-e4fba5c77732
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TITLE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 50796c6c-9450-43a3-b43a-ee744d533aae
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: afab397e-c127-42b8-aa33-9ace1d3c1538
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: DISTANCE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9ea37b77-89d4-4330-8958-be6ab9990a41
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 6e91ad53-a4e9-448c-9321-e8df6b80c4d3
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: CALORIES
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8be4ad6c-3890-44f8-940d-23327f7705c3
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: c1eb6c6b-9ee6-4726-89f0-0e7de69de929
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 7798c33d-7db8-4166-a711-2c95a141a15c
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 2624270f-086c-4ad7-b256-91d5946aeb35
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_HR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5a11756b-179b-49c9-b3ea-2e479d26c8e5
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 7f8ca1ac-4101-488f-9cc3-7191906ea089
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_HR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: cb2ca6a6-0985-4059-8d36-384ce3ace5df
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: e75df1a7-9ea1-46ba-9f35-c893c6c5b142
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AEROBIC_TE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: e4173ebc-8a94-470b-9866-2c11cc68f350
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 81f3cf9c-0ce2-4a73-a679-69822e28bce6
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_RUN_CADENCE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: ceabc15b-b43b-4c36-ac50-bbc3d697e26a
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 083c9636-9764-4f66-b282-4ce4db7b3261
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_RUN_CADENCE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c1c95bec-6dd7-46f9-9c4c-c8db58338e08
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: cc926c23-b300-4ea7-91d9-3675620274a9
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_PACE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 10e77275-3968-4ee4-b853-d189293981e8
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: f93cb53c-bb0c-4fdb-8e19-7c596f2cb04e
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: BEST_PACE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2f3283cf-aad6-4e1e-b21c-afbc12dd4040
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: e0c2e765-3da1-436c-b6ca-fa9a676f3eaf
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_ASCENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 20f6aff3-e8d2-422d-b86d-6e6fe8c98f00
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 903428f4-efe6-41cb-a2da-ec6ec38787cb
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_DESCENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8e4166c2-7c29-48fd-8a9e-3e58ad540c06
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: b25cd6ed-9ba0-4fa1-99c2-72a07425681d
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_STRIDE_LENGTH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b9018592-f722-4715-957c-5c55188e91e0
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 2bfe8c73-ee4a-477a-8ab4-1f8cb65c503f
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_VERTICAL_RATIO
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0dfb3ca6-3ead-46e9-be71-189df8e8d6fe
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 376c383c-5dd8-4ca1-a51c-38e3a805dfb1
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_VERTICAL_OSCILLATION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 686e20a3-6d5b-4cea-b31a-f64c2ee34e8e
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: aaf07d11-0b33-45b2-91ca-2276e4e5f6ed
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_GROUND_CONTACT_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: f466379c-adca-4550-9a64-9908d20c33bd
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 6a3d1294-caa1-4736-90b2-0e399e0c4833
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_GCT_BALANCE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9bc642db-5995-4634-8c67-866cd17c4693
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: eba0ee1b-2849-4253-b01c-edff60c2e0ec
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TRAINING_STRESS_SCORE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: eeb84dff-55dd-4579-bf24-67a3be62d8e1
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: c3b64f12-2e50-4387-82b9-4359f77b8e7b
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_POWER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: dcf0a699-da6e-4d71-99ad-f0dfd44043c6
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 31d8f43f-06d2-436b-95bb-d638396ffdbf
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_POWER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 50913384-db7a-46c8-b735-0631db0f3700
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 5ac4652a-061d-4607-9e4a-afa7ef044031
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: GRIT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 32487132-4780-486e-845d-5de4125948ad
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 429f77dd-40ff-478a-96ae-59b1b6aa2fb6
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: FLOW
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2c031edf-462c-41f1-a6c0-72236cc2e6a2
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 06ff27a6-937a-4afd-b56c-8486ca1fbd50
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_SWOLF
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 76d94865-5110-49e3-b466-0e260b1d4810
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 0528178e-1b99-4e45-85f5-2bf2948e9228
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_STROKE_RATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 086ec97f-06a2-4a72-b77a-dde5558661e8
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: c2c47d40-ab83-42d3-895a-6190c3f44b70
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_REPS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 145ff90c-6ea5-4c95-a855-fe59abad36ad
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 9a14b871-a69c-4db2-92d2-be9b3f2ec416
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_SETS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5a6288e6-7db1-49c2-bcf8-b6b5e6d1b22e
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 2cb0ebb0-1bbd-451a-b5b3-26c9a98a6ee3
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: DIVE_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8d2d8797-56c4-4220-83e2-8f14e0dac711
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 2dddc727-34c6-41a6-8f2a-56412e9e126c
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MIN_TEMP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0d2fbe63-eeab-4f02-991f-b241448edda2
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 77286ff7-c576-4f44-b2da-ac1151d5302e
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: SURFACE_INTERVAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 833a9826-41ea-4600-bd91-b8ab48841d7e
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 40448a65-2015-49e9-a61c-97125108c873
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: DECOMPRESSION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: f289445d-1443-4b7b-9524-e96c05398b4f
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 1e7df161-877e-42ca-ae8b-19c4888e42a7
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: BEST_LAP_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 590d3908-80a9-45ab-89d1-01df51fd9a84
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 8b8fb1ae-db05-4d34-aa16-edf896336e1f
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: NUMBER_OF_LAPS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 952a38d5-9e64-4fab-8dd7-f7e2735d08db
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 408b6d57-3d71-4a06-8ff5-4738f8f29eeb
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_TEMP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 61608b2a-d805-4442-b60f-ae42103b286b
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: a81583bb-985b-4259-90fc-d2c2df5c6473
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_RESP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: ff6e5cc2-6fb1-4ca1-92f0-c732f96ed0ef
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 8799167c-7d90-4333-a6c8-0e3c072f4549
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MIN_RESP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 108e475d-5952-4827-80c9-64677c8d439f
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 37cf0957-8847-4b7c-9061-f27a87682387
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_RESP
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 46cee686-9355-4438-a2a3-4b96f604cadd
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 6e5f109b-8fc0-43dc-bfe6-d0662c59218a
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: STRESS_CHANGE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 6fa8fd0f-d213-4354-b4cc-3402f0856e7e
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: bc6e7a6e-10b5-4154-97cc-0197ed7e78a4
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: STRESS_START
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: df068d4d-6b1c-4d98-9da4-e372d77e1bad
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 5f948845-1147-40d2-9287-112d095e825e
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: STRESS_END
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 603e55e4-16ff-47b8-80c2-275270c601cd
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: bde79f82-520a-405a-a160-fce2d8747db5
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVG_STRESS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: ae21ea30-eadf-440e-a904-e5ccf0ac7c7a
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: ba8d1dc8-83ef-462b-877d-64b1e2012d1c
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_STRESS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: f4ce0d15-3188-4a26-b0bd-3179d613158f
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 985ad88a-4a08-4460-bbbd-2c6c5b69c573
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MOVING_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 972958ff-9a60-4fc4-bb86-05efea4e5123
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 07a5576f-e003-426d-aad6-742f8d1cee67
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: ELAPSED_TIME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: bed1f70a-e7a9-4979-8031-057c0ecc9ba6
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: fc35cd16-a970-4b3f-ab83-e608fd59c5ef
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MIN_ELEVATION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: dba12ee0-7401-4f00-9c02-9a7b99a28e84
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: c7fa8173-0a66-4419-b704-21d837997d14
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_ELEVATION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: a6781fc7-9120-4582-beb2-e5dcc9bcbe1e
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 8b2fc2ce-bc88-4a64-a820-b987aaffd320
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: STRING
+            description: ""
+            name: HDIFF_ACTIVITY_GARMIN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 62cd6d3c-c823-4f5c-8aa3-c2b4bbad3d85
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: cc572431-5f78-4226-b640-6b45179f524b
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: VARCHAR(1000)
+            description: ""
+            name: FILE_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 50f01397-1962-492b-bdc3-9998113528fe
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 0e89c980-07e9-43fe-8ad8-a291abf54ec1
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: LOAD_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: df5e2f5d-c0e6-4d9a-a5f7-40f3c5bfbfe6
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - columnReference:
+              columnCounter: 97701004-bbef-4665-a2bf-ff20368dfb5a
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5be61697-2509-4ba5-8d36-0a8b876432c8
+                    stepCounter: 30153240-69b1-400d-9395-d512f377a3de
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 1e7600b8-dd0a-480a-aa6f-26df99984ad7
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            is_system_ledts: true
+            name: END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: |-
+                  COALESCE(LEAD("LOAD_DATE") 
+                  OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                  ORDER BY "LOAD_DATE"),'31-DEc-8888')
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 3af92ac7-b134-4650-a930-4407a21db82e
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            is_system_ledts: true
+            name: VERSION_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: |-
+                  RANK() 
+                  OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                  ORDER BY "LOAD_DATE" DESC)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 9059f75f-fcce-4a5c-a0e0-c8db9c0c1070
+              stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            is_system_current_col: true
+            name: CURRENT_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: |-
+                  CASE 
+                    WHEN 
+                      LEAD("LOAD_DATE") 
+                      OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                      ORDER BY "LOAD_DATE") IS NULL 
+                    THEN TRUE 
+                    ELSE FALSE 
+                  END
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW_DV
+                nodeName: SAT_ACTVITY_GARMIN
+            join:
+              joinCondition: FROM {{ ref('RAW_DV', 'SAT_ACTVITY_GARMIN') }} "SAT_ACTVITY_GARMIN"
+            name: SAT_ACTVITY_GARMIN_HISTORY
+            noLinkRefs: []
+      name: SAT_ACTVITY_GARMIN_HISTORY
+      overrideSQL: false
+      schema: ""
+      sqlType: "4"
+      type: sql
+    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a

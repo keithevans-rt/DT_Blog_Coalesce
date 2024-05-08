@@ -1,0 +1,173 @@
+steps:
+  DT_ACTVITY_GARMIN_HISTORY-28900176-de66-4c7a-bacd-f16d837faf14:
+    operation:
+      config:
+        selectDistinct: true
+        selectLag: downstream
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: INFO
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: fe789521-dc2d-4647-9540-7f3ddebf5a5e
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            dataType: STRING
+            description: ""
+            name: BKEY_ACTIVITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 84892b93-6ac5-4185-bf72-d0ae145a61f5
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: ""
+          - columnReference:
+              columnCounter: 8acf5265-f1f5-4181-b599-4fbfcb7d4351
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 97701004-bbef-4665-a2bf-ff20368dfb5a
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: ""
+          - columnReference:
+              columnCounter: c5d8a7ce-f190-4da0-ac9d-484053d020d8
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            dataType: INT
+            description: ""
+            name: YEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 97701004-bbef-4665-a2bf-ff20368dfb5a
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: YEAR(DATE)
+          - columnReference:
+              columnCounter: cbf0d8da-384c-4eb5-a76a-82ce658bf046
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            dataType: INT
+            description: ""
+            name: MONTH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 97701004-bbef-4665-a2bf-ff20368dfb5a
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: MONTH(DATE)
+          - columnReference:
+              columnCounter: e401fb0b-472c-4e55-9116-82ba4a591aa5
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            dataType: INT
+            description: ""
+            name: DAY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 97701004-bbef-4665-a2bf-ff20368dfb5a
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: DAY(DATE)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 025353fb-868c-4609-8832-a0685321c8d0
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            config: {}
+            dataType: INT
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: MINUTE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 97701004-bbef-4665-a2bf-ff20368dfb5a
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: DATE_PART(MIN,DATE)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: bd4436cd-5b03-44e7-8938-e0b01a73a790
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            config: {}
+            dataType: INT
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: SECOND
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 97701004-bbef-4665-a2bf-ff20368dfb5a
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: DATE_PART(SEC,DATE)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: false
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 16d77059-0337-46b7-b1d8-f0bba11f134c
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            dataType: INT
+            description: ""
+            name: DISTANCE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: afab397e-c127-42b8-aa33-9ace1d3c1538
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: ""
+          - acceptedValues:
+              strictMatch: false
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 607d1f52-a64c-4413-90b9-6505c21ceb41
+              stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+            dataType: INT
+            description: ""
+            name: TOTAL_ASCENT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: e0c2e765-3da1-436c-b6ca-fa9a676f3eaf
+                    stepCounter: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+                transform: REPLACE("SAT_ACTVITY_GARMIN_HISTORY"."TOTAL_ASCENT",',','')
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              SAT_ACTVITY_GARMIN_HISTORY: 2ba494f7-03c3-4cec-b825-bdf8f694738a
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: BUSINESS_DV
+                nodeName: SAT_ACTVITY_GARMIN_HISTORY
+            join:
+              joinCondition: |-
+                FROM {{ ref('BUSINESS_DV', 'SAT_ACTVITY_GARMIN_HISTORY') }} "SAT_ACTVITY_GARMIN_HISTORY"
+                WHERE  "ACTIVITY_TYPE" = 'Running'
+                AND "CURRENT_FLAG" = 'Y'
+                AND YEAR(DATE) = 2024
+            name: DT_ACTVITY_GARMIN_HISTORY
+            noLinkRefs: []
+      name: DT_ACTVITY_GARMIN_HISTORY
+      overrideSQL: false
+      schema: ""
+      sqlType: "5"
+      type: sql
+    stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14

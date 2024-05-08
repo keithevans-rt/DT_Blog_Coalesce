@@ -1,0 +1,159 @@
+steps:
+  DT_GARMIN_STRAVA_COMPARE-a7e673f8-fe58-4da4-a009-ec4d31bb8475:
+    operation:
+      config:
+        selectDistinct: false
+        selectLag: 1 day
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: INFO
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: false
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 3df5cf61-77e8-456f-9b4b-37429dee87f7
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: VARCHAR(1000)
+            description: ""
+            name: ACTIVITY_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 69bec4ed-fbb2-4e13-8941-fe1143da4bdb
+                    stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+                transform: ""
+          - columnReference:
+              columnCounter: 82cad2f7-3d29-4ea0-ab7e-46cfa162ef92
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8acf5265-f1f5-4181-b599-4fbfcb7d4351
+                    stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+                transform: DATE("DT_ACTVITY_GARMIN_HISTORY"."DATE")
+          - columnReference:
+              columnCounter: 11d400e5-2795-4204-8409-01cd38be507b
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: INT
+            description: ""
+            name: HOUR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 025353fb-868c-4609-8832-a0685321c8d0
+                    stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+                transform: HOUR("DT_ACTVITY_GARMIN_HISTORY"."DATE")
+          - columnReference:
+              columnCounter: 764ea0b7-ef75-465e-a97c-dcdb10e1e62f
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: VARCHAR(1000)
+            description: ""
+            name: DISTANCE_GARMIN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 16d77059-0337-46b7-b1d8-f0bba11f134c
+                    stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+                transform: ""
+          - columnReference:
+              columnCounter: e32b66c6-091b-4001-bdc3-0217621a5222
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: VARCHAR(1000)
+            description: ""
+            name: DISTANCE_STRAVA
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8c832287-7f99-473f-a064-605031362b67
+                    stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+                transform: ""
+          - columnReference:
+              columnCounter: 4b0b5341-96a3-4dfd-be58-331b7fa17a5d
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: VARCHAR(1000)
+            description: ""
+            name: DISTANCE_DIFF
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8c832287-7f99-473f-a064-605031362b67
+                    stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+                transform: "\"DT_ACTVITY_GARMIN_HISTORY\".\"DISTANCE\" - \"DT_ACTVITY_STRAVA_HISTORY\".\"DISTANCE_MILES\""
+          - columnReference:
+              columnCounter: bf9adf82-c05e-4f21-bd19-25aa4f1ae869
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_ASCENT_GARMIN
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 607d1f52-a64c-4413-90b9-6505c21ceb41
+                    stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+                transform: ""
+          - columnReference:
+              columnCounter: 99eff2ac-6bed-4f2b-afaa-ba01cdfc6696
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_ASCENT_STRAVA
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: dd900f5b-4881-4a04-8841-bfada075dab5
+                    stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+                transform: ""
+          - columnReference:
+              columnCounter: db599ef3-2eaa-41a9-9586-2a2ccd61db94
+              stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475
+            dataType: VARCHAR(1000)
+            description: ""
+            name: ASCENT_DIFF
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 607d1f52-a64c-4413-90b9-6505c21ceb41
+                    stepCounter: 28900176-de66-4c7a-bacd-f16d837faf14
+                transform: "\"DT_ACTVITY_GARMIN_HISTORY\".\"TOTAL_ASCENT\" - \"DT_ACTVITY_STRAVA_HISTORY\".\"TOTAL_ELEVATION_GAIN_FEET\""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              DT_ACTVITY_GARMIN_HISTORY: 28900176-de66-4c7a-bacd-f16d837faf14
+              DT_ACTVITY_STRAVA_HISTORY: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+              DT_LINK_SAME_AS_ACTIVITY: d7fa2ec7-c5a5-4e10-9bc1-f03663e89cbe
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: INFO
+                nodeName: DT_ACTVITY_GARMIN_HISTORY
+              - locationName: INFO
+                nodeName: DT_ACTVITY_STRAVA_HISTORY
+              - locationName: INFO
+                nodeName: DT_LINK_SAME_AS_ACTIVITY
+            join:
+              joinCondition: |+
+                FROM {{ ref('INFO','DT_LINK_SAME_AS_ACTIVITY')}} "DT_LINK_SAME_AS_ACTIVITY"
+                INNER JOIN {{ ref('INFO', 'DT_ACTVITY_GARMIN_HISTORY') }} "DT_ACTVITY_GARMIN_HISTORY"
+                ON DT_LINK_SAME_AS_ACTIVITY.BKEY_ACTIVITY_GARMIN = DT_ACTVITY_GARMIN_HISTORY.BKEY_ACTIVITY
+                INNER JOIN {{ ref('INFO', 'DT_ACTVITY_STRAVA_HISTORY') }} "DT_ACTVITY_STRAVA_HISTORY"
+                ON DT_LINK_SAME_AS_ACTIVITY.BKEY_ACTIVITY_STRAVA = DT_ACTVITY_STRAVA_HISTORY.BKEY_ACTIVITY
+
+            name: DT_GARMIN_STRAVA_COMPARE
+            noLinkRefs: []
+      name: DT_GARMIN_STRAVA_COMPARE
+      overrideSQL: false
+      schema: ""
+      sqlType: "5"
+      type: sql
+    stepCounter: a7e673f8-fe58-4da4-a009-ec4d31bb8475

@@ -1,0 +1,317 @@
+steps:
+  SAT_ACTIVITY_STRAVA_HISTORY-19ede6ef-6606-45a8-b339-b2f435617775:
+    operation:
+      config:
+        postSQL: ""
+        preSQL: ""
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: BUSINESS_DV
+      materializationType: view
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 8b4674d2-071b-452b-b552-b9823bbacf8e
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            config:
+              is_hk: true
+            dataType: STRING
+            description: ""
+            name: BKEY_ACTIVITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 9cc47581-1780-45d8-b181-a66ec356e848
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: cc508a92-b92a-4f47-9269-59daa5b09247
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: ACTIVITY_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 7dce4e72-9869-4e10-b460-b55c2a512ae6
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 4f15806b-3e5e-49c4-8ae6-c6b278eea64b
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: ACTIVITY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 82a302d4-e538-473a-84d2-a345992626a4
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 7afc157d-8602-4e17-86cd-1854606f49ed
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b65dbe1e-9fa9-4c22-b678-24a557aa0673
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 800eb3f5-0a7a-4604-bc0b-cf2d53b53379
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: ACTIVITY_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: d80d7f53-245c-41ec-bab7-98fca59a124c
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 7fcb3df7-e9c2-45f9-b471-6edf568555eb
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: DISTANCE_MILES
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: fe1b8f69-dd26-4806-8ccd-21d1bc709afb
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 07ce7b3b-3aaf-4df4-82ba-1918703af777
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MOVING_TIME_HOURS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 5f57b8b9-bc00-4dbd-8829-02185ff72faa
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: e2766e69-7ad1-47c8-afde-1e727c0a1c0f
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_ELEVATION_GAIN_FEET
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 27d1c9ee-b7c6-4258-b7f6-2b5ec1dbf499
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: c6d628da-293d-4b50-b899-68e551515cfe
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVERAGE_SPEED_MPH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: b92d4da9-59ee-4dd5-85e9-9fa84ef5679a
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 5766a9c9-eaf9-4554-b6ba-39391ce8f2ba
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_SPEED_MPH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 12562df3-7872-4d24-956c-56041209a92f
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: b3a9c534-df22-4401-bdbb-6a138697efc8
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: DISTANCE_METERS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 994a24d7-ffb7-4859-a216-eaad81c5cb56
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: f1cb6bb8-3318-49bb-b34b-52d2551dee16
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MOVING_TIME_SECONDS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: de9865cc-603b-474b-8624-46fd3b01fdc5
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 95a5ac47-0ce2-4795-949a-b0e1c2cfdef9
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_ELEVATION_GAIN_METERS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2efccf93-c95c-4f70-8246-23c067150eb3
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 5f59effa-479d-4b00-9d02-55d162db38b5
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: AVERAGE_SPEED_METERS_SEC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 0c83a255-5201-4ae1-9edf-d60f75f5286f
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 0d877477-417f-4e06-a47a-4d092c9d5cf4
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: MAX_SPEED_METERS_SEC
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: c85dd126-4bc7-45b1-a916-36a3a6ff841e
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: fde58abe-c1fc-482d-a181-5c3582cb77a9
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: VARCHAR(1000)
+            description: ""
+            name: FILE_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 42b39b75-e01b-4a52-a303-4d382317e33c
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 75f55749-2263-4152-95a0-ba29f5d34afb
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: LOAD_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 30282d65-c32e-47ce-baa8-79e19dd0057d
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - columnReference:
+              columnCounter: 44267e41-65fa-4abc-b836-bf2771718960
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            dataType: STRING
+            description: ""
+            name: HDIFF_ACTIVITY_STRAVA
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8f469862-0110-46b1-8376-eb297c9689f5
+                    stepCounter: b2b4fa95-41e8-4b65-b62b-4696666e33da
+                transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 6381fd35-4441-4b46-8aa4-8e1f627d8fd7
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            is_system_ledts: true
+            name: END_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: |-
+                  COALESCE(LEAD("LOAD_DATE") 
+                  OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                  ORDER BY "LOAD_DATE"),'31-DEc-8888')
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 988f6e8f-d1df-4ef4-9345-329128300acc
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            config: {}
+            dataType: TIMESTAMP
+            defaultValue: ""
+            description: ""
+            is_system_ledts: true
+            name: VERSION_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: |-
+                  RANK() 
+                  OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                  ORDER BY "LOAD_DATE" DESC)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: e3e981ea-8693-42d8-96b6-fb2461f9ca7b
+              stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+            config: {}
+            dataType: BOOLEAN
+            defaultValue: ""
+            description: ""
+            is_system_current_col: true
+            name: CURRENT_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences: []
+                transform: |-
+                  CASE 
+                    WHEN 
+                      LEAD("LOAD_DATE") 
+                      OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                      ORDER BY "LOAD_DATE") IS NULL 
+                    THEN TRUE 
+                    ELSE FALSE 
+                  END
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: RAW_DV
+                nodeName: SAT_ACTIVITY_STRAVA
+            join:
+              joinCondition: FROM {{ ref('RAW_DV', 'SAT_ACTIVITY_STRAVA') }} "SAT_ACTIVITY_STRAVA"
+            name: SAT_ACTIVITY_STRAVA_HISTORY
+            noLinkRefs: []
+      name: SAT_ACTIVITY_STRAVA_HISTORY
+      overrideSQL: false
+      schema: ""
+      sqlType: "4"
+      type: sql
+    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775

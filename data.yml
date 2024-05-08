@@ -123,6 +123,300 @@ stepTypes:
             {% endif %}
     name: "Datavault by Scalefree: Hub"
     version: 1
+  StepType-3:
+    id: "3"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: RAW_DV
+      error: null
+      nodeMetadataSpec: |-
+        capitalized: 'DATAVAULT BY SCALEFREE: SATELLITE V0'
+        short: 'SATV0'
+        plural: 'DATAVAULT BY SCALEFREE: SATELLITES V0'
+        tagColor: 'Yellow'
+
+        config:
+        - groupName: Data Vault
+          items:
+          - displayName: Hashkey Column
+            type: columnSelector
+            attributeName: is_hk
+            isRequired: true
+
+          - displayName: Hashdiff Column
+            type: columnSelector
+            attributeName: is_hd
+            isRequired: true
+
+        - groupName: Pre/Post SQL
+          items:
+          - displayName: Pre-SQL
+            attributeName: preSQL
+            type: textBox
+            isRequired: false
+
+          - displayName: Post-SQL
+            attributeName: postSQL
+            type: textBox
+            isRequired: false
+      templates:
+        create:
+          templateString: |-
+            {{ stage('Create Satellite Table') }}
+
+            CREATE OR REPLACE TABLE {{ ref_no_link(node.location.name, node.name) }}
+            (
+            	{% for col in columns %}
+            		"{{ col.name }}" {{ col.dataType }}
+            		{%- if not col.nullable %} NOT NULL
+            			{%- if col.defaultValue | length > 0 %} DEFAULT {{ col.defaultValue }}{% endif %}
+            		{% endif %}
+            		{%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+            		{%- if not loop.last -%}, {% endif %}
+            	{% endfor %}
+            )
+            {%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
+        run:
+          templateString: |-
+            {% if config.preSQL %}
+            	{{ stage('Pre-SQL') }}
+            	{{ config.preSQL }}
+            {% endif %}
+
+            {{ stage('Insert New Rows') }}
+            INSERT INTO {{ ref_no_link(node.location.name, node.name) }}
+            WITH latest_entries_in_sat AS (
+            	/* get current rows from satellite */
+            	{% for col in columns if col.is_hk or col.is_hd %}
+            		{%- if loop.first -%}SELECT {% endif %} 
+            		"{{col.name}}"
+            		{%- if not loop.last -%}, {% endif %}
+            		{%- if loop.last %} 
+            			FROM {{ ref_no_link(node.location.name, node.name) }} 
+            			QUALIFY ROW_NUMBER() OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" ORDER BY "LOAD_DATE" DESC) = 1
+            		{% endif %}
+            	{% endfor %}
+            ),
+
+            deduplicated_numbered_source AS (
+                
+                {% for source in sources %}
+
+                    SELECT
+            		{% for col in source.columns %}
+            			{{ get_source_transform(col) }} AS {{ col.name }},
+            		{% endfor %}
+                    ROW_NUMBER() OVER(PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" ORDER BY "LOAD_DATE") as rn
+                    
+                    {{ source.join }}
+                    QUALIFY
+                    CASE
+                        WHEN "{{ get_value_by_column_attribute("is_hd") }}" = LAG("{{ get_value_by_column_attribute("is_hd") }}") OVER(PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" ORDER BY "LOAD_DATE" ) THEN FALSE
+                        ELSE TRUE
+                    END
+
+                {% endfor %}
+
+            )
+
+            	{% for source in sources %}
+            		SELECT DISTINCT
+            		{% for col in source.columns %}
+            			{{ col.name }}
+            			{%- if not loop.last -%}, {% endif %}
+            		{% endfor %}
+
+            		FROM deduplicated_numbered_source
+            	WHERE NOT EXISTS (
+            		SELECT 1 FROM latest_entries_in_sat
+            		WHERE 
+            		{% for col in source.columns if col.is_hk or col.is_hd %}
+            			{% if not loop.first %}
+            				AND
+            			{% endif %}
+            			deduplicated_numbered_source.{{ col.name }} = latest_entries_in_sat."{{ col.name }}"
+            		{% endfor %}
+                    AND deduplicated_numbered_source.rn = 1
+            	)
+
+            	{% endfor %}
+
+            {% if config.postSQL %}
+            	{{ stage('Post-SQL') }}
+            	{{ config.postSQL }}
+            {% endif %}
+    name: "Datavault by Scalefree: Satellite v0"
+    version: 1
+  StepType-4:
+    id: "4"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: BUSINESS_DV
+      error: null
+      nodeMetadataSpec: |-
+        capitalized: 'DATAVAULT BY SCALEFREE: SATELLITE V1'
+        short: 'SAT'
+        plural: 'DATAVAULT BY SCALEFREE: SATELLITES V1'
+        tagColor: '#FFAC1C'
+
+        config:
+        - groupName: Options
+          items:
+          - type: materializationSelector
+            isRequired: true
+            enableIf: 'true'
+            default: view
+            options:
+            - view
+
+        - groupName: Data Vault
+          items:
+          - displayName: Hashkey Column
+            type: columnSelector
+            attributeName: is_hk
+            isRequired: true
+
+        - groupName: Pre/Post SQL
+          items:
+          - displayName: Pre-SQL
+            attributeName: preSQL
+            type: textBox
+            isRequired: false
+
+          - displayName: Post-SQL
+            attributeName: postSQL
+            type: textBox
+            isRequired: false
+
+        systemColumns:
+        - displayName: "END_DATE"
+          transform: |-
+            COALESCE(LEAD("LOAD_DATE") 
+            OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+            ORDER BY "LOAD_DATE"),'31-DEc-8888')
+          dataType: TIMESTAMP
+          placement: end
+          attributeName: is_system_ledts
+        - displayName: "VERSION_NUMBER"
+          transform: |-
+            RANK() 
+            OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+            ORDER BY "LOAD_DATE" DESC)
+          dataType: TIMESTAMP
+          placement: end
+          attributeName: is_system_ledts
+        - displayName: "CURRENT_FLAG"
+          transform: |-
+            CASE 
+              WHEN 
+                LEAD("LOAD_DATE") 
+                OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                ORDER BY "LOAD_DATE") IS NULL 
+              THEN TRUE 
+              ELSE FALSE 
+            END
+          dataType: BOOLEAN
+          placement: end
+          attributeName: is_system_current_col
+      templates:
+        create:
+          templateString: |-
+            {{ stage('Create Satellite View') }}
+
+            CREATE OR REPLACE VIEW {{ ref_no_link(node.location.name, node.name) }}
+            (
+                {% for col in columns %}
+                   "{{ col.name }}"
+            		{%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+                    {%- if not loop.last -%}, {% endif %}
+                {% endfor %}
+            )
+            	{%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
+
+            AS
+            {% for source in sources %}
+                SELECT
+                {% for col in source.columns %}
+                    {{ get_source_transform(col) }} AS "{{ col.name }}"
+                    {%- if not loop.last -%}, {% endif %}
+                {% endfor %}
+                {{ source.join }}
+            {% endfor %}
+        run:
+          templateString: ""
+    name: "Datavault by Scalefree: Satellite v1"
+    version: 1
+  StepType-5:
+    id: "5"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: INFO
+      error: null
+      nodeMetadataSpec: |+
+        capitalized: Copy of View
+        short: DT
+        tagColor: '#C4C4C4'
+        isDisabled: true
+        plural: Views
+
+        config:
+        - groupName: Options
+          items:
+          - displayName: 'Lag'
+            type: dropdownSelector                       
+            attributeName: 'selectLag'                                           
+            options:
+            - 'downstream'
+            - '1 day'
+            isRequired: true 
+            
+          - type: toggleButton
+            attributeName: selectDistinct
+            displayName: Distinct
+
+      templates:
+        create:
+          templateString: |
+            {% if node.override.create.enabled %}
+                
+                {{ node.override.create.script }}
+
+            {% else %}
+                {{ stage('Create DT') }}
+                CREATE OR REPLACE DYNAMIC TABLE {{ ref_no_link(node.location.name, node.name) }}
+                (
+                    {% for col in columns %}
+                        "{{ col.name }}"
+                        {%- if col.description | length > 0 %} COMMENT '{{ col.description | escape }}'{% endif %}
+                        {%- if not loop.last -%}, {% endif %}
+                    {% endfor %}
+                )
+                {%- if node.description | length > 0 %} COMMENT = '{{ node.description | escape }}'{% endif %}
+                TARGET_LAG = '{{config.selectLag}}'
+                WAREHOUSE = DEMO_WH
+                AS
+                {% for source in sources %}
+                    SELECT {% if config.selectDistinct %} DISTINCT {% endif %}
+                    {% for col in source.columns %}
+                        {{ get_source_transform(col) }} AS "{{ col.name }}"
+                        {%- if not loop.last -%}, {% endif %}
+                    {% endfor %}
+
+                    {{ source.join }}
+
+                    {% if not loop.last %}
+                        {% if config.insertStrategy in ['UNION', 'UNION ALL'] %}
+                            {{ config.insertStrategy }}
+                        {% else %}
+                            UNION
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        run:
+          templateString: ""
+    name: DT
+    version: 1
   StepType-Dimension:
     id: Dimension
     isDisabled: false
@@ -1581,5 +1875,21 @@ stepTypes:
             {% endif %}
     name: Persistent Stage
     version: 1
-subgraphs: {}
+subgraphs:
+  Subgraph-2:
+    id: "2"
+    name: New Subgraph
+    steps:
+      - 7b939a7f-798c-43d8-8fed-75dd9bf39ee8
+      - aa2179ed-a59c-4b3c-8cd5-3549f5a3ddc5
+      - e05eb812-8a21-4d1f-a02b-cec03c0e9324
+      - 835d43a1-646c-454f-a24d-14f426ebfd7d
+      - b2b4fa95-41e8-4b65-b62b-4696666e33da
+      - 30153240-69b1-400d-9395-d512f377a3de
+      - c6167f6f-15a8-4a5c-8152-7a53da2cf4f8
+      - 2ba494f7-03c3-4cec-b825-bdf8f694738a
+      - 19ede6ef-6606-45a8-b339-b2f435617775
+      - 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+      - 28900176-de66-4c7a-bacd-f16d837faf14
+      - d7fa2ec7-c5a5-4e10-9bc1-f03663e89cbe
 version: 2

@@ -1,0 +1,205 @@
+steps:
+  DT_ACTVITY_STRAVA_HISTORY-80f27c58-0af6-4ae0-a21e-9da12efd5afb:
+    operation:
+      config:
+        selectDistinct: true
+        selectLag: downstream
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: INFO
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: aea7c2f7-7083-415c-9c43-5db34b1eade3
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: STRING
+            description: ""
+            name: BKEY_ACTIVITY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8b4674d2-071b-452b-b552-b9823bbacf8e
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: ""
+          - columnReference:
+              columnCounter: 13ee0a9c-8b41-4f4a-a9f6-7e63bcab498f
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            name: DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: cc508a92-b92a-4f47-9269-59daa5b09247
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: ""
+          - columnReference:
+              columnCounter: c5fd19f7-7f96-4c08-b18c-29942a32b55f
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: INT
+            description: ""
+            name: YEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: cc508a92-b92a-4f47-9269-59daa5b09247
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: YEAR(ACTIVITY_DATE)
+          - columnReference:
+              columnCounter: 75052919-f461-4951-a091-8a17a2ef80e1
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: INT
+            description: ""
+            name: MONTH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: cc508a92-b92a-4f47-9269-59daa5b09247
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: MONTH(ACTIVITY_DATE)
+          - columnReference:
+              columnCounter: 7cc84aa6-72c9-44e4-a35e-fb6520e5869f
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: INT
+            description: ""
+            name: DAY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: cc508a92-b92a-4f47-9269-59daa5b09247
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: DAY(ACTIVITY_DATE)
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 6e9b5568-ad58-499a-9b8c-0ca623e99431
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            config: {}
+            dataType: INT
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: MINUTE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: cc508a92-b92a-4f47-9269-59daa5b09247
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: DATE_PART(MIN,ACTIVITY_DATE)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: bd5c1016-39cb-4c6c-a8bd-f632f81f102c
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            config: {}
+            dataType: INT
+            defaultValue: ""
+            description: ""
+            keyColumnType: None
+            name: SECOND
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: cc508a92-b92a-4f47-9269-59daa5b09247
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: DATE_PART(SEC,ACTIVITY_DATE)
+            systemColumnType: None
+            transform: ""
+          - acceptedValues:
+              strictMatch: false
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8c832287-7f99-473f-a064-605031362b67
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: INT
+            description: ""
+            name: DISTANCE_MILES
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 7fcb3df7-e9c2-45f9-b471-6edf568555eb
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: ""
+          - acceptedValues:
+              strictMatch: false
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 9c7d3e41-2020-402a-91f0-8080cb0bfaaf
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: VARCHAR(1000)
+            description: ""
+            name: TOTAL_ELEVATION_GAIN_METERS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 95a5ac47-0ce2-4795-949a-b0e1c2cfdef9
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: ""
+          - acceptedValues:
+              strictMatch: false
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: dd900f5b-4881-4a04-8841-bfada075dab5
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: INT
+            description: ""
+            name: TOTAL_ELEVATION_GAIN_FEET
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 95a5ac47-0ce2-4795-949a-b0e1c2cfdef9
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: ROUND("SAT_ACTIVITY_STRAVA_HISTORY"."TOTAL_ELEVATION_GAIN_METERS" * 3.28084)
+          - acceptedValues:
+              strictMatch: false
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 69bec4ed-fbb2-4e13-8941-fe1143da4bdb
+              stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
+            dataType: VARCHAR(1000)
+            description: ""
+            name: ACTIVITY_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 800eb3f5-0a7a-4604-bc0b-cf2d53b53379
+                    stepCounter: 19ede6ef-6606-45a8-b339-b2f435617775
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases:
+              SAT_ACTIVITY_STRAVA_HISTORY: 19ede6ef-6606-45a8-b339-b2f435617775
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: BUSINESS_DV
+                nodeName: SAT_ACTIVITY_STRAVA_HISTORY
+            join:
+              joinCondition: |-
+                FROM {{ ref('BUSINESS_DV', 'SAT_ACTIVITY_STRAVA_HISTORY') }} "SAT_ACTIVITY_STRAVA_HISTORY"
+                WHERE  "TYPE" = 'Run'
+                AND "CURRENT_FLAG" = 'Y'
+                AND YEAR(DATE) = 2024
+            name: DT_ACTVITY_STRAVA_HISTORY
+            noLinkRefs: []
+      name: DT_ACTVITY_STRAVA_HISTORY
+      overrideSQL: false
+      schema: ""
+      sqlType: "5"
+      type: sql
+    stepCounter: 80f27c58-0af6-4ae0-a21e-9da12efd5afb
